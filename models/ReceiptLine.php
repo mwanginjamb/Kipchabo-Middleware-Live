@@ -14,6 +14,7 @@ class ReceiptLine extends Model
 {
 
     public $Key;
+    public $Item_No;
     public $Description;
     public $Store_Code;
     public $Store_Name;

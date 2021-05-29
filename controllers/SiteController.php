@@ -811,31 +811,36 @@ class SiteController extends Controller
         $model = new ReceiptLine();
         $service = Yii::$app->params['ServiceName']['POSReceiptLines'];
 
-        // Takes raw data from the request
+       // Takes raw data from the request
         $json = file_get_contents('php://input');
         // Convert it into a PHP object
         $data = json_decode($json);
 
         $ignore = [];
+        $refresh = '';
 
-        
         //Initial request
-        if(!isset($data->Key) && empty($Key) ) // Post Only
+        if(!Yii::$app->request->get('Key') && !isset($data->Key)) // Post without payload Only
         {     
+            Yii::$app->Navhelper->loadmodel($data,$model);
             $request = Yii::$app->Navhelper->postData($service,$model);
             return $request;
-        }elseif(isset($data->Key))
+        }elseif(Yii::$app->request->get('Key')) // A get Request - Gets Record to update
         {
-            $model = Yii::$app->Navhelper->loadmodel($data,$model);
+           
+            $request = Yii::$app->Navhelper->readByKey($service, $Key);
+            return $request;
         }
-
+        
+               
+        // Refresh Nav key as you prepare to Update Record
+        if(isset($data->Key)){
+             $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+        }
        
-        // Get Record to Update
-        $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
-
 
         //Load model with Line Data
-        if(is_object($refresh)){ // Array of Object Was Returned
+        if(is_object($refresh)){ // Object Was Returned from above refresh
 
           
           $model->Key = $refresh->Key;
@@ -845,7 +850,7 @@ class SiteController extends Controller
           $update = Yii::$app->Navhelper->updateData($service, $model);
 
           return $update;
-        }else{ // Return Navision Error
+        }else{ // Return Navision Error - should be a string
 
             $refresh;
         }

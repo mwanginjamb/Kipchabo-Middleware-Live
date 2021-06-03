@@ -48,7 +48,7 @@ return [
         'SalesInvoiceLine' =>  'SalesInvoiceLine', // 47
         'PostedSalesInvoices' => 'PostedSalesInvoices', // 143 --> List
         'PostedSalesInvoice' => 'PostedSalesInvoice', //132 --> Card
-        'PostedSalesInvoicesMobile' => 'PostedSalesInvoicesMobile', // 50000 List Page
+        'PostedSalesInvoicesMobile' => 'PostedSalesInvoicesMobile', //50117 ----> 50000 List Page
         'PostedCashReceiptMobile' => 'PostedCashReceiptMobile', //50045 List Page
 
         'RequisitionList' => 'RequisitionList', // 50120 (Page)--
@@ -59,10 +59,18 @@ return [
         'StockIssueCard' => 'StockIssueCard', //50127
 
 
-        /*Cash Sale */
+        /*Cash Sales */
         'POSReceiptList' => 'POSReceiptList', //50174
         'POSReceiptCard' => 'POSReceiptCard', //50175
         'POSReceiptLines' => 'POSReceiptLines', // 50176
+
+        /*Credit Sales */
+
+        'POSCreditList' => 'POSCreditList', //50129
+        'POSCreditCard' => 'POSCreditCard', //50130
+        'POSCreditLines' => 'POSCreditLines', //50131
+
+        
 
         'LocationList' => 'LocationList', // 15 (Page)
         'UnitMeasure' => 'UnitMeasure', //5404 (Page)

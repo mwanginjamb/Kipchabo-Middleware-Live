@@ -21,6 +21,9 @@ use app\models\Vendor; // Active Record Model
 use app\models\Farmer; // Same as Vendor but lacks active record support, just a data model
 use app\models\Stockissueline;
 use app\models\ReceiptLine;
+use app\models\Credit;
+use app\models\Creditline;
+use app\models\StockIssue;
 /**
  * Site controller
 
@@ -68,7 +71,12 @@ class SiteController extends Controller
             'updateissueline',
             'requisition-lines',
             'cash-sale',
-            'cash-sale-line'
+            'cash-sale-line',
+            'credit',
+            'credit-line',
+            'stock-issue-line',
+            'stock-issue-card',
+            'acknowledge-stock-issue'
         ];
 
         if (in_array($action->id , $allowedActions) ) {
@@ -155,7 +163,12 @@ class SiteController extends Controller
                             'updateissueline',
                             'requisition-lines',
                             'cash-sale',
-                            'cash-sale-line'
+                            'cash-sale-line',
+                            'credit',
+                            'credit-line',
+                            'stock-issue-line',
+                            'stock-issue-card',
+                            'acknowledge-stock-issue'
                         ],
                         'allow' => true,
                         'roles' => ['?'],
@@ -223,6 +236,11 @@ class SiteController extends Controller
                     'requisition-lines',
                     'cash-sale',
                     'cash-sale-line',
+                    'credit',
+                    'credit-line',
+                    'stock-issue-line',
+                    'stock-issue-card',
+                    'acknowledge-stock-issue'
 
                 ],
                 'formatParam' => '_format',
@@ -842,9 +860,213 @@ class SiteController extends Controller
         //Load model with Line Data
         if(is_object($refresh)){ // Object Was Returned from above refresh
 
-          
           $model->Key = $refresh->Key;
           $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error - should be a string
+
+            $refresh;
+        }
+
+    }
+
+    /*Credit Sale Card*/
+
+    public function actionCredit($Key="")
+    {
+        $model = new Credit();
+        $service = Yii::$app->params['ServiceName']['POSCreditCard'];
+
+       // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = [];
+        $refresh = '';
+
+        //Initial request
+        if(!Yii::$app->request->get('Key') && !isset($data->Key)) // Post without payload Only
+        {     
+            Yii::$app->Navhelper->loadmodel($data,$model);
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(Yii::$app->request->get('Key')) // A get Request - Gets Record to update
+        {
+           
+            $request = Yii::$app->Navhelper->readByKey($service, $Key);
+            return $request;
+        }
+        
+               
+        // Refresh Nav key as you prepare to Update Record
+        if(isset($data->Key)){
+             $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+        }
+       
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Object Was Returned from above refresh
+
+          $model->Key = $refresh->Key;
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error - should be a string
+
+            $refresh;
+        }
+
+    }
+
+    public function actionCreditLine($Key="")
+    {
+        $model = new Creditline();
+        $service = Yii::$app->params['ServiceName']['POSCreditLines'];
+
+       // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = [];
+        $refresh = '';
+
+        //Initial request
+        if(!Yii::$app->request->get('Key') && !isset($data->Key)) // Post without payload Only
+        {     
+            Yii::$app->Navhelper->loadmodel($data,$model);
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(Yii::$app->request->get('Key')) // A get Request - Gets Record to update
+        {
+           
+            $request = Yii::$app->Navhelper->readByKey($service, $Key);
+            return $request;
+        }
+        
+               
+        // Refresh Nav key as you prepare to Update Record
+        if(isset($data->Key)){
+             $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+        }
+       
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Object Was Returned from above refresh
+
+          $model->Key = $refresh->Key;
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error - should be a string
+
+            $refresh;
+        }
+
+    }
+
+    public function actionStockIssueLine($Key="")
+    {
+        $model = new Stockissueline();
+        $service = Yii::$app->params['ServiceName']['StockIssueLines'];
+
+       // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = [];
+        $refresh = '';
+
+        //Initial request
+        if(!Yii::$app->request->get('Key') && !isset($data->Key)) // Post without payload Only
+        {     
+            Yii::$app->Navhelper->loadmodel($data,$model);
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(Yii::$app->request->get('Key')) // A get Request - Gets Record to update
+        {
+           
+            $request = Yii::$app->Navhelper->readByKey($service, $Key);
+            return $request;
+        }
+        
+               
+        // Refresh Nav key as you prepare to Update Record
+        if(isset($data->Key)){
+             $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+        }
+       
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Object Was Returned from above refresh
+
+          $model->Key = $refresh->Key;
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error - should be a string
+
+            $refresh;
+        }
+
+    }
+
+    public function actionStockIssueCard($Key="")
+    {
+        $model = new Stockissue();
+        $service = Yii::$app->params['ServiceName']['StockIssueCard'];
+
+       // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = [];
+        $refresh = '';
+
+        //Initial request
+        if(!Yii::$app->request->get('Key') && !isset($data->Key)) // Post without payload Only
+        {     
+            Yii::$app->Navhelper->loadmodel($data,$model);
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(Yii::$app->request->get('Key')) // A get Request - Gets Record to update
+        {
+           
+            $request = Yii::$app->Navhelper->readByKey($service, $Key);
+            return $request;
+        }
+        
+               
+        // Refresh Nav key as you prepare to Update Record
+        if(isset($data->Key)){
+             $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+        }
+       
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Object Was Returned from above refresh
+
+          
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+          $model->Key = $refresh->Key;
+
+         // print_r($model); exit;
 
             // Do actual update
           $update = Yii::$app->Navhelper->updateData($service, $model);
@@ -1292,9 +1514,22 @@ class SiteController extends Controller
     public function actionPostreceipt($No){
         $service = Yii::$app->params['ServiceName']['MobileCodeunit'];
         $args = [
-            'receiptNo' => $No
+            'docNo' => $No
         ];
-        $res = Yii::$app->Navhelper->Mobile($service,$args,'IanPostCustomerReceipt');
+        // $res = Yii::$app->Navhelper->Mobile($service,$args,'IanPostCustomerReceipt');
+        $res = Yii::$app->Navhelper->Mobile($service,$args,'FnPostPOSCashReceipt');
+        return $res;
+
+    }
+
+    /*Acknowledge Stock Issue*/
+
+    public function actionAcknowledgeStockIssue($No){
+        $service = Yii::$app->params['ServiceName']['MobileCodeunit'];
+        $args = [
+            'docNo' => $No
+        ];
+        $res = Yii::$app->Navhelper->Mobile($service,$args,'FnPostPointOfSaleReceipt');
         return $res;
 
     }
@@ -1317,7 +1552,7 @@ class SiteController extends Controller
         $service1 = Yii::$app->params['ServiceName']['MobileCodeunit'];
         $service2 = Yii::$app->params['ServiceName']['PostedSalesInvoicesMobile'];
 
-         $enddate = empty(trim($enddate))?$startdate:$enddate;
+        $enddate = empty(trim($enddate))?$startdate:$enddate;
 
         // Generate Filtered Sales List
 
@@ -1354,7 +1589,8 @@ class SiteController extends Controller
 
         $args = [
             'startDate' => $startdate,
-            'endDate' => $enddate
+            'endDate' => $enddate,
+            'userIdToUse' => ''
         ];
 
 

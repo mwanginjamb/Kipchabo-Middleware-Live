@@ -63,7 +63,11 @@ class SiteController extends Controller
             'credit-line',
             'stock-issue-line',
             'stock-issue-card',
-            'acknowledge-stock-issue'
+            'acknowledge-stock-issue',
+            'return',
+            'return-view',
+            'return-line',
+            'fetch-return-line'
         ];
 
         if (in_array($action->id , $allowedActions) ) {
@@ -155,7 +159,11 @@ class SiteController extends Controller
                             'credit-line',
                             'stock-issue-line',
                             'stock-issue-card',
-                            'acknowledge-stock-issue'
+                            'acknowledge-stock-issue',
+                            'return',
+                            'return-view',
+                            'return-line',
+                            'fetch-return-line'
                         ],
                         'allow' => true,
                         'roles' => ['?'],
@@ -227,7 +235,11 @@ class SiteController extends Controller
                     'credit-line',
                     'stock-issue-line',
                     'stock-issue-card',
-                    'acknowledge-stock-issue'
+                    'acknowledge-stock-issue',
+                    'return',
+                    'return-view',
+                    'return-line',
+                    'fetch-return-line'
 
                 ],
                 'formatParam' => '_format',
@@ -2044,6 +2056,16 @@ class SiteController extends Controller
             $refresh;
         }
 
+    }
+
+    // Get Return Line By Key
+
+    public function actionFetchReturnLine($Key)
+    {
+        $service = Yii::$app->params['ServiceName']['POSReturnLines'];
+        $line = Yii::$app->Navhelper->readByKey($service, $Key);
+
+        return $line;
     }
 
         

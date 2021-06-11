@@ -24,22 +24,9 @@ use app\models\ReceiptLine;
 use app\models\Credit;
 use app\models\Creditline;
 use app\models\StockIssue;
-/**
- * Site controller
+use app\models\Return;
+use app\models\Returnline;
 
-
-
- $action->id == 'addline' || 
-            $action->id == 'update-requisition' || 
-            $action->id == 'updaterequisitionline' ||
-            $action->id == 'update-invoice' ||
-            $action->id == 'updatesalesinvoiceline' ||
-            $action->id == 'addsalesinvoiceline' ||
-            $action->id == 'create-invoice' ||
-            $action->id == 'updatecashreceipt' ||
-            $action->id == 'updatecashreceiptline' ||
-            $action->id == 'updateamounttoreceipt'
- */
 class SiteController extends Controller
 {
 
@@ -458,16 +445,21 @@ class SiteController extends Controller
 
     // Get Requisition List
 
-    public function actionRequisitions() {
+    public function actionRequisitions($userid="") {
         $service = Yii::$app->params['ServiceName']['RequisitionList'];
-        $filter = [];
+
+        $filter = ['Requested_By' => $userid];
 
         $results = Yii::$app->Navhelper->getData($service, $filter );
 
         if(is_array($results))
         {
             return $results;
-        }else
+        }elseif(is_object($results))
+        {
+            return [];
+        }
+        else
         {
             return $results;
         }
@@ -1110,12 +1102,13 @@ class SiteController extends Controller
 
     // Create Requisition
 
-    public function actionCreateRequisition()
+    public function actionCreateRequisition($userid)
     {
-        $service = Yii::$app->params['ServiceName']['RequisitionCard'];
-        $data = [];
+        $model = new Requisition();
+        $model->Requested_By = $userid;
+        $service = Yii::$app->params['ServiceName']['RequisitionCard'];      
             
-        $results = Yii::$app->Navhelper->postData($service, $data);
+        $results = Yii::$app->Navhelper->postData($service, $model);
 
         if(is_array($results))
         {
@@ -1147,10 +1140,16 @@ class SiteController extends Controller
 
 
     /* Generic Getter Method just supply service name as a get param*/
-     public function actionGet($service)
+     public function actionGet($service,$userid="")
     {
         $service = Yii::$app->params['ServiceName'][$service];
-        $data = [];
+
+        if(empty($userid))
+        {
+            $data = [];
+        } else{
+            $data = ['Created_By' => $userid];
+        }       
             
         $results = Yii::$app->Navhelper->getData($service, $data);
 
@@ -1493,18 +1492,18 @@ class SiteController extends Controller
          
     }
 
-    public function actionSale($id)
+
+/*Get Posted Sale Document*/
+    public function actionSale($Key)
     {
 
          $service = Yii::$app->params['ServiceName']['PostedSalesInvoice'];
-         $filter = [
-            'No' => $id
-         ];
+         
 
-         $result = Yii::$app->Navhelper->getData($service,$filter);
+         $result = Yii::$app->Navhelper->readByKey($service,$Key);
 
-         if(is_array($result)){
-            return $result[0];
+         if(is_object($result)){
+            return $result;
          }else{
             $result;
          }
@@ -1546,7 +1545,7 @@ class SiteController extends Controller
 
     // Get posted sales by date
 
-    public function actionFiltersales($startdate, $enddate="")
+    public function actionFiltersales($startdate, $enddate="", $userid="")
     {
         
         $service1 = Yii::$app->params['ServiceName']['MobileCodeunit'];
@@ -1558,7 +1557,8 @@ class SiteController extends Controller
 
         $args = [
             'startDate' => $startdate,
-            'endDate' => $enddate
+            'endDate' => $enddate,
+            'userIdToUse' => $userid
         ];
 
         $coderes = Yii::$app->Navhelper->Mobile($service1,$args,'IanGenerateFilteredSales');
@@ -1577,7 +1577,7 @@ class SiteController extends Controller
 
     // Get and Filter Posted Payments by date
 
-     public function actionFilterpayments($startdate, $enddate="")
+     public function actionFilterpayments($startdate, $enddate="", $userid="")
     {
         
         $service1 = Yii::$app->params['ServiceName']['MobileCodeunit'];
@@ -1590,7 +1590,7 @@ class SiteController extends Controller
         $args = [
             'startDate' => $startdate,
             'endDate' => $enddate,
-            'userIdToUse' => ''
+            'userIdToUse' => $userid
         ];
 
 
@@ -1923,6 +1923,126 @@ class SiteController extends Controller
         }
         
        
+
+    }
+
+    /*Returns*/
+
+
+//Create or update a return record
+    public function actionReturn($Key="")
+    {
+        $model = new Return();
+        $service = Yii::$app->params['ServiceName']['POSReturnCard'];
+
+        // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = ['Receipt_Date','Customer_Name','Bank_Account_Name'];
+
+        
+        //Initial request
+        if(!isset($data->Key) && empty($Key) ) // Post Only
+        {     
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(isset($data->Key))
+        {
+            $model = Yii::$app->Navhelper->loadmodel($data,$model);
+        }
+
+       
+        // Get Record to Update
+        $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Array of Object Was Returned
+
+          
+          $model->Key = $refresh->Key;
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error
+
+            $refresh;
+        }
+
+    }
+
+
+    // Read a Return Document
+
+     public function actionViewReturn($Key)
+    {
+
+         $service = Yii::$app->params['ServiceName']['POSReturnCard'];
+         
+
+         $result = Yii::$app->Navhelper->readByKey($service,$Key);
+
+         if(is_object($result)){
+            return $result;
+         }else{
+            $result;
+         }
+         
+    }
+
+// Create / update a return Line
+    public function actionReturnLine($Key="")
+    {
+        $model = new Returnline();
+        $service = Yii::$app->params['ServiceName']['POSReturnLines'];
+
+       // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = [];
+        $refresh = '';
+
+        //Initial request
+        if(!Yii::$app->request->get('Key') && !isset($data->Key)) // Post without payload Only
+        {     
+            Yii::$app->Navhelper->loadmodel($data,$model);
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(Yii::$app->request->get('Key')) // A get Request - Gets Record to update
+        {
+           
+            $request = Yii::$app->Navhelper->readByKey($service, $Key);
+            return $request;
+        }
+        
+               
+        // Refresh Nav key as you prepare to Update Record
+        if(isset($data->Key)){
+             $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+        }
+       
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Object Was Returned from above refresh
+
+          $model->Key = $refresh->Key;
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error - should be a string
+
+            $refresh;
+        }
 
     }
 

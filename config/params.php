@@ -48,7 +48,7 @@ return [
         'SalesInvoiceLine' =>  'SalesInvoiceLine', // 47
         'PostedSalesInvoices' => 'PostedSalesInvoices', // 143 --> List
         'PostedSalesInvoice' => 'PostedSalesInvoice', //132 --> Card
-        'PostedSalesInvoicesMobile' => 'PostedSalesInvoicesMobile', //50117 ----> 50000 List Page
+        'PostedSalesInvoicesMobile' => 'PostedSalesInvoicesMobile', //50177 List Page
         'PostedCashReceiptMobile' => 'PostedCashReceiptMobile', //50045 List Page
 
         'RequisitionList' => 'RequisitionList', // 50120 (Page)--
@@ -90,6 +90,13 @@ return [
 
         'UserSetup' => 'UserSetup', //119
         'Employee' => 'Employee', //5200
+
+        /*****Returns*****/
+
+        'POSReturnList' => 'POSReturnList', //90213
+        'POSReturnCard' => 'POSReturnCard', //90214
+        'POSReturnLines' => 'POSReturnLines', //90215
+
 
     ]
 

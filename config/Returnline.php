@@ -10,23 +10,18 @@ namespace app\models;
 use yii\base\Model;
 
 
-class Receipt extends Model
+class Returnline extends Model
 {
 
 public $Key;
-public $POS_Receipt_No;
-public $Receipt_Date;
-public $Type_Of_Sale;
-public $Customer_No;
-public $Customer_Name;
-public $Bank_Account_No;
-public $Bank_Account_Name;
-public $Global_Dimension_1_Code;
-public $Reference_No;
-public $Total_Amount;
-public $Created_By;
-
-
+public $No;
+public $Item_No;
+public $Description;
+public $Store_Code;
+public $Store_Name;
+public $Quantity;
+public $Price;
+public $Amount;
 
     public function rules()
     {

@@ -24,7 +24,7 @@ use app\models\ReceiptLine;
 use app\models\Credit;
 use app\models\Creditline;
 use app\models\StockIssue;
-use app\models\Return;
+use app\models\ReturnCard;
 use app\models\Returnline;
 
 class SiteController extends Controller
@@ -65,7 +65,7 @@ class SiteController extends Controller
             'stock-issue-card',
             'acknowledge-stock-issue',
             'return',
-            'return-view',
+            'view-return',
             'return-line',
             'fetch-return-line'
         ];
@@ -161,7 +161,7 @@ class SiteController extends Controller
                             'stock-issue-card',
                             'acknowledge-stock-issue',
                             'return',
-                            'return-view',
+                            'view-return',
                             'return-line',
                             'fetch-return-line'
                         ],
@@ -237,7 +237,7 @@ class SiteController extends Controller
                     'stock-issue-card',
                     'acknowledge-stock-issue',
                     'return',
-                    'return-view',
+                    'view-return',
                     'return-line',
                     'fetch-return-line'
 
@@ -1306,12 +1306,20 @@ class SiteController extends Controller
 
     // Get Customers for Receipting
 
-     public function actionReceiptingCustomers()
+     public function actionReceiptingCustomers($searchName='')
     {
         $service = Yii::$app->params['ServiceName']['CustomerList'];
-        $filter = [
-            //'Has_Invoice' => true
-        ];
+
+        if(!empty($searchName)) {
+            $filter = [
+                'Search_Name'=> $searchName
+            ];
+        }else {
+            $filter = [
+                //'Has_Invoice' => true
+            ];
+        }
+        
             
         $results = Yii::$app->Navhelper->getData($service, $filter);
 
@@ -1798,6 +1806,8 @@ class SiteController extends Controller
         $credentials->UserName = $NavisionUsername;
         $credentials->PassWord = $NavisionPassword;
 
+       // return $credentials;
+
         $result = Yii::$app->Navhelper->findOne($service,$credentials,'User_ID', $NavisionUsername);
 
 
@@ -1944,7 +1954,9 @@ class SiteController extends Controller
 //Create or update a return record
     public function actionReturn($Key="")
     {
-        $model = new Return();
+
+       
+        $model = new ReturnCard();
         $service = Yii::$app->params['ServiceName']['POSReturnCard'];
 
         // Takes raw data from the request
@@ -1952,7 +1964,7 @@ class SiteController extends Controller
         // Convert it into a PHP object
         $data = json_decode($json);
 
-        $ignore = ['Receipt_Date','Customer_Name','Bank_Account_Name'];
+        $ignore = [];
 
         
         //Initial request
@@ -1974,8 +1986,9 @@ class SiteController extends Controller
         if(is_object($refresh)){ // Array of Object Was Returned
 
           
-          $model->Key = $refresh->Key;
+         
           $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+          $model->Key = $refresh->Key;
 
             // Do actual update
           $update = Yii::$app->Navhelper->updateData($service, $model);
@@ -1993,6 +2006,7 @@ class SiteController extends Controller
 
      public function actionViewReturn($Key)
     {
+
 
          $service = Yii::$app->params['ServiceName']['POSReturnCard'];
          

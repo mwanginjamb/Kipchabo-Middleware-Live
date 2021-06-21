@@ -10,7 +10,7 @@ namespace app\models;
 use yii\base\Model;
 
 
-class Return extends Model
+class ReturnCard extends Model
 {
 
 public $Key;

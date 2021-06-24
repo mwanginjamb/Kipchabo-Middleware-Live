@@ -1306,15 +1306,20 @@ class SiteController extends Controller
 
     // Get Customers for Receipting
 
-     public function actionReceiptingCustomers($searchName='')
+     public function actionReceiptingCustomers($searchName='',$Salesperson_Code='')
     {
-        $service = Yii::$app->params['ServiceName']['CustomerList'];
+        $service = Yii::$app->params['ServiceName']['PortalCustomerList'];
 
         if(!empty($searchName)) {
             $filter = [
                 'Search_Name'=> $searchName
             ];
-        }else {
+        }elseif (!empty($Salesperson_Code)) {
+            $filter = [
+                'Salesperson_Code' => $Salesperson_Code
+            ];
+        }
+        else {
             $filter = [
                 //'Has_Invoice' => true
             ];
@@ -1325,7 +1330,12 @@ class SiteController extends Controller
 
         if(is_array($results))
         {
-            return $results;
+            if(sizeof($results))
+            {
+                return $results;
+            }
+            return [];
+            
         }else
         {
             return $results;

@@ -83,6 +83,7 @@ return [
 
         'Dimensions' => 'Dimensions', // 560 (Page)
         'CustomerList' => 'CustomerList', //22 (Page)
+        'PortalCustomerList' => 'PortalCustomerList',
         'ItemBalanceByLocation' => 'ItemBalanceByLocation', //492 (Page)
         'ItemLedgerEntries' => 'ItemLedgerEntries', // 38 (Page)
 

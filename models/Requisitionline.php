@@ -17,9 +17,11 @@ public $Key;
 public $Item_No;
 public $Description;
 public $U_O_M;
+public $Quantity_To_Request;
+public $Pieces_In_qty_Requested;
 public $Available_Stock_Kgs;
 public $Available_Stock_pieces;
-public $Pieces_To_Request;
+public $Total_Bags_Cartons;
 public $Line_No;
 public $Req_No;
 

@@ -14,18 +14,18 @@ return [
     'server'=>'win-seconftr3d7.kipchabotea.co.ke',//'app-svr-dev.rbss.com',//Navision Server
     'WebServicePort'=>'6047',//Nav server Port
     'ServerInstance'=>'DynamicsNAV100',//Nav Server Instance
-    'CompanyName'=> 'POS',//'KIPCHABO-GO-LIVE',//Nav Web Service Company,
-    'DBCompanyName' => 'POS$',
-    'ldPrefix'=>'francis',//ACTIVE DIRECTORY prefix
-    'adServer' => 'DC2SVR.AASCIENCES.AC.KE', //Active directory domain controller
+    'CompanyName'=> 'KIPCHABO TEA LTD',//'KIPCHABO TEA LTD',//Nav Web Service Company,
+    'DBCompanyName' => 'KIPCHABO TEA LTD$',
+    'ldPrefix'=>'',//ACTIVE DIRECTORY prefix
+    'adServer' => '', //Active directory domain controller
 
     //sharepoint config
-    'sharepointUrl' => 'https://aaofsciences.sharepoint.com',//'https://ackads.sharepoint.com',
-    'sharepointUsername' => 'Navision@aasciences.africa',//'francis@ackads.onmicrosoft.com',
-    'sharepointPassword' => 'Nav9orta7',//'@crm1220#*',
+    'sharepointUrl' => '',//'https://ackads.sharepoint.com',
+    'sharepointUsername' => '',//'francis@ackads.onmicrosoft.com',
+    'sharepointPassword' => '',//'@crm1220#*',
     'library' => 'Portal',//'Mydocs',
-    'clientID' => '7e92ce54-e4bf-491a-bef6-eb94044ce297',
-    'clientSecret' => 'Q6UJkB3bRlPkGBjWNgrQVCyyjL2vgi5rtP7THpLwJ+s=',
+    'clientID' => '',
+    'clientSecret' => '',
 
     'profileControllers' => [
 
@@ -35,6 +35,8 @@ return [
     ],
     'ServiceName' =>[
 
+        'MPESATransactions' => 'MPESATransactions', //80149
+        'MPESATRANSACTIONSLIVE' => 'MPESATRANSACTIONSLIVE', 
 
         'ItemList' => 'ItemList', // Page 31 (Page)
         'ItemCard' => 'ItemCard', // Page 30 (Page)
@@ -63,6 +65,7 @@ return [
         'POSReceiptList' => 'POSReceiptList', //50174
         'POSReceiptCard' => 'POSReceiptCard', //50175
         'POSReceiptLines' => 'POSReceiptLines', // 50176
+        'CustomerPriceGroups' => 'CustomerPriceGroups', // 7
 
         /*Credit Sales */
 
@@ -83,9 +86,10 @@ return [
 
         'Dimensions' => 'Dimensions', // 560 (Page)
         'CustomerList' => 'CustomerList', //22 (Page)
-        'PortalCustomerList' => 'PortalCustomerList',
+        'PortalCustomerList' => 'PortalCustomerList', //50180 (Page)
         'ItemBalanceByLocation' => 'ItemBalanceByLocation', //492 (Page)
         'ItemLedgerEntries' => 'ItemLedgerEntries', // 38 (Page)
+        'POSStockBalance' => 'POSStockBalance', //50179 (Page)
 
         'MobileCodeunit' => 'MobileCodeunit', // 50014 - Codeunit
 
@@ -97,6 +101,12 @@ return [
         'POSReturnList' => 'POSReturnList', //90213
         'POSReturnCard' => 'POSReturnCard', //90214
         'POSReturnLines' => 'POSReturnLines', //90215
+
+        /***********Cash Deposit *****/
+
+        'CashDepositList' => 'CashDepositList', //90216
+        'CashDepositCard' => 'CashDepositCard', //90218
+        'CashDepositLines' => 'CashDepositLines', //90219
 
 
     ]

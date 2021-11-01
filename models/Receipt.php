@@ -23,9 +23,14 @@ public $Bank_Account_No;
 public $Bank_Account_Name;
 public $Global_Dimension_1_Code;
 public $Reference_No;
+public $Price_Group;
 public $Total_Amount;
+public $Balance_Amount;
 public $Created_By;
 
+public $VAT_Amount;
+public $Amount_Inc_VAT;
+public $Cheque_No;
 
 
     public function rules()

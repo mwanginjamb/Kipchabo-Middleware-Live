@@ -1,0 +1,27 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "MERCY TANUI",
+   "billAmount": "52084",
+   "CustomerRefNumber": "MERCY TANUI",
+   "bankreference": "20220301S9926832",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "01-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000006"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "1",
+   "billAmount": "102550",
+   "CustomerRefNumber": "1",
+   "bankreference": "20220301S183346",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "01-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

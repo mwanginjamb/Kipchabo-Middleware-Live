@@ -34,40 +34,7 @@ class SiteController extends Controller
     {  
 
         $allowedActions = [
-            'grenleafcollection',
-            'updategreenleafcollection',
-            'greenleafcollectionline',
-            'updategreenleafcollectionline',
-            'addline',
-            'update-requisition',
-            'updaterequisitionline',
-            'update-invoice',
-            'updatesalesinvoiceline',
-            'addsalesinvoiceline',
-            'create-invoice',
-            'updatecashreceipt',
-            'updatecashreceiptline',
-            'updateamounttoreceipt',
-            'leafcollectioncard',
-            'collectionlinetoupdate',
-            'leafcollectioncard',
-            'farmer-card',
-            'add-farmer',
-            'add-media',
-            'auth',
-            'updateissueline',
-            'requisition-lines',
-            'cash-sale',
-            'cash-sale-line',
-            'credit',
-            'credit-line',
-            'stock-issue-line',
-            'stock-issue-card',
-            'acknowledge-stock-issue',
-            'return',
-            'view-return',
-            'return-line',
-            'fetch-return-line'
+            'verification'
         ];
 
         if (in_array($action->id , $allowedActions) ) {
@@ -101,69 +68,7 @@ class SiteController extends Controller
                     [
                         'actions' => [
                             'index',
-                            'get-orders',
-                            'getone',
-                            'items',
-                            'itemcard',
-                            'requisitions',
-                            'requisitioncard',
-                            'locationlist',
-                            'unitmeasure',
-                            'addline',
-                            'releasedrequisitions',
-                            'create-requisition',
-                            'get',
-                            'update-requisition',
-                            'departments',
-                            'projects',
-                            'getline',
-                            'updaterequisitionline',
-                            'saleorders',
-                            'salesorder',
-                            'saleinvoices',
-                            'saleinvoice',
-                            'getsalesinvoiceline',
-                            'update-invoice',
-                            'updatesalesinvoiceline',
-                            'addsalesinvoiceline',
-                            'create-invoice',
-                            'receipt',
-                            'receipting-customers',
-                            'customerledgerentries',
-                            'newpayment',
-                            'updatecashreceipt',
-                            'suggestlines',
-                            'refreshreceipt',
-                            'updatecashreceiptline',
-                            'updateamounttoreceipt',
-                            'sale',
-                            'postreceipt',
-                            'postsaleinvoice',
-                            'filtersales',
-                            'filterpayments',
-                            'itemavailabilitybylocation',
-                            'leafcollectioncard',
-                            'farmer-card',
-                            'add-farmer',
-                            'shades',
-                            'add-media',
-                            'auth',
-                            'employee',
-                            'stockissue',
-                            'getissueline',
-                            'updateissueline',
-                            'requisition-lines',
-                            'cash-sale',
-                            'cash-sale-line',
-                            'credit',
-                            'credit-line',
-                            'stock-issue-line',
-                            'stock-issue-card',
-                            'acknowledge-stock-issue',
-                            'return',
-                            'view-return',
-                            'return-line',
-                            'fetch-return-line'
+                            'verification'
                         ],
                         'allow' => true,
                         'roles' => ['?'],
@@ -173,73 +78,7 @@ class SiteController extends Controller
             'contentNegotiator' =>[
                 'class' => ContentNegotiator::class,
                 'only' => [
-                    'getone',
-                    'get-orders',
-                    'items',
-                    'itemcard', 
-                    'requisitions',
-                    'requisitioncard',
-                    'locationlist',
-                    'unitmeasure',
-                    'addline',
-                    'releasedrequisitions',
-                    'create-requisition',
-                    'get',
-                    'update-requisition',
-                    'departments',
-                    'projects',
-                    'getline',
-                    'updaterequisitionline',
-                    'saleorders',
-                    'salesorder',
-                    'saleinvoices',
-                    'saleinvoice',
-                    'getsalesinvoiceline',
-                    'update-invoice',
-                    'updatesalesinvoiceline',
-                    'addsalesinvoiceline',
-                    'create-invoice',
-                    'receipt',
-                    'receipting-customers',
-                    'customerledgerentries',
-                    'newpayment',
-                    'updatecashreceipt',
-                    'suggestlines',
-                    'updatecashreceiptline',
-                    'updateamounttoreceipt',
-                    'sale',
-                    'postreceipt',
-                    'postsaleinvoice',
-                    'filtersales',
-                    'filterpayments',
-                    'itemavailabilitybylocation',
-                    'leafcollection',
-                    'updateleafcollection',
-                    'leafcollectionline',
-                    'updateleafcollectionline',
-                    'leafcollectioncard',
-                    'collectionlinetoupdate',
-                    'farmer-card',
-                    'add-farmer',
-                    'shades',
-                    'add-media',
-                    'auth',
-                    'employee',
-                    'stockissue',
-                    'getissueline',
-                    'updateissueline',
-                    'requisition-lines',
-                    'cash-sale',
-                    'cash-sale-line',
-                    'credit',
-                    'credit-line',
-                    'stock-issue-line',
-                    'stock-issue-card',
-                    'acknowledge-stock-issue',
-                    'return',
-                    'view-return',
-                    'return-line',
-                    'fetch-return-line'
+                    'verification',
 
                 ],
                 'formatParam' => '_format',
@@ -301,6 +140,63 @@ class SiteController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+
+
+    public function actionVerification()
+    {
+        $postdata = file_get_contents("php://input");
+        if (get_magic_quotes_runtime())
+        {
+            $postdata = stripslashes($postdata);
+        }
+        $filename = 'log/'.(string)time().'request.log';
+        $req_dump = print_r($postdata, TRUE);
+        $fp = fopen($filename, 'a');
+        fwrite($fp, $req_dump);
+        fclose($fp);
+
+        /*Start Nav Integration*/
+
+        $service = Yii::$app->params['ServiceName']['MpesaIntegration'];
+
+        // Convert it into a PHP object
+        $data = json_decode($postdata);
+
+
+         // Call Mobile Code Unit
+
+        $args = [
+            'username'=> !empty($data->username)?$data->username:'',
+            'password' => !empty($data->password)?$data->password:'',
+            'billNumber' => !empty($data->billNumber)?$data->billNumber:'',
+            'billAmount' => !empty($data->billAmount)?$data->billAmount:'',
+            'customerRefNumber' => !empty($data->CustomerRefNumber)?$data->CustomerRefNumber:'' ,
+            'bankreference' => !empty($data->bankreference)?$data->bankreference:'' ,
+            'tranParticular' => !empty($data->tranParticular)?$data->tranParticular:'' ,
+            'paymentMode' => !empty($data->paymentMode)?$data->paymentMode:'' ,
+            'transactionDate' => !empty($data->transactionDate)?date('Y-m-d',strtotime($data->transactionDate)):'',
+            'phonenumber' => !empty($data->phonenumber)?$data->phonenumber:'' ,
+            'debitaccount' => !empty($data->debitaccount)?$data->debitaccount:'' ,
+            'debitcustname' => !empty($data->debitcustname)?$data->debitcustname:'' ,
+        ];
+
+        // return $args;
+
+        $res = Yii::$app->Navhelper->Mobile($service,$args,'EquityPayloadRct');
+
+        /*Log Nav Response*/
+
+        $filename = 'log/'.(string)time().'nav.log';
+        $req_dump = print_r($res, TRUE);
+        $fp = fopen($filename, 'a');
+        fwrite($fp, $req_dump);
+        fclose($fp);
+
+
+        return $res;
+
+        /*End Nav Integration*/     
     }
 
     /**

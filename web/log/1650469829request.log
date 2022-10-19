@@ -1,0 +1,14 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "EquatorAutoSpar",
+   "billAmount": "123750",
+   "CustomerRefNumber": "EquatorAutoSpar",
+   "bankreference": "20220420S3515032",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "20-04-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

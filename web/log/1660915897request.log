@@ -1,0 +1,14 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "BENSON",
+   "billAmount": "32000",
+   "CustomerRefNumber": "BENSON",
+   "bankreference": "20220819S1502179",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "19-08-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000008"
+}

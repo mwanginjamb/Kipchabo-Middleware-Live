@@ -1,0 +1,27 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "7705182",
+   "billAmount": "100000",
+   "CustomerRefNumber": "7705182",
+   "bankreference": "20220924S4032520",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "24-09-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000001"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "7139810",
+   "billAmount": "81771",
+   "CustomerRefNumber": "7139810",
+   "bankreference": "20220924S4035230",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "24-09-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000088"
+}

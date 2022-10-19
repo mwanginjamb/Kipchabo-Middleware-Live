@@ -1,0 +1,14 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "23654384",
+   "billAmount": "125000",
+   "CustomerRefNumber": "23654384",
+   "bankreference": "20220302S2051549",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "02-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000008"
+}

@@ -1,0 +1,53 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "1",
+   "billAmount": "121667",
+   "CustomerRefNumber": "1",
+   "bankreference": "20220330S8042644",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "30-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "20710086",
+   "billAmount": "31250",
+   "CustomerRefNumber": "20710086",
+   "bankreference": "20220330S7961420",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "30-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000007"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "8629996",
+   "billAmount": "31250",
+   "CustomerRefNumber": "8629996",
+   "bankreference": "20220330S7962567",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "30-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000032"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "5358628",
+   "billAmount": "152500",
+   "CustomerRefNumber": "5358628",
+   "bankreference": "20220330S7961872",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "30-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:003318"
+}

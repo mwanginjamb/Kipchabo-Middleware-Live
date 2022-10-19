@@ -1,0 +1,14 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "1",
+   "billAmount": "176800",
+   "CustomerRefNumber": "1",
+   "bankreference": "20220321S3881640",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "21-03-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

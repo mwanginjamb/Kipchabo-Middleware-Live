@@ -1,0 +1,14 @@
+{
+ "username": "Philip4",
+ "password": "3pn!Ty@990",
+ "billNumber": "123339292",
+ "billAmount": "300",
+ "CustomerRefNumber": "1203wowo",
+ "bankreference": "20170101100003485481",
+ "tranParticular": "BillPayment",
+ "paymentMode": "cash",
+ "transactionDate": "01-01-2017 00:00:00",
+ "phonenumber": "254765555136",
+ "debitaccount": "0170100094903",
+ "debitcustname": "Test Test Test"
+}

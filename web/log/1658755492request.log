@@ -1,0 +1,40 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "12748927",
+   "billAmount": "100",
+   "CustomerRefNumber": "12748927",
+   "bankreference": "20220725S3524015",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "25-07-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "12748927/CHRSITOPHER"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "13125251",
+   "billAmount": "1",
+   "CustomerRefNumber": "13125251",
+   "bankreference": "2022072554287129",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "25-07-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "13125251"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "TOILEMPORIOTGOD",
+   "billAmount": "26667",
+   "CustomerRefNumber": "TOILEMPORIOTGOD",
+   "bankreference": "20220725S3486068",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "25-07-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

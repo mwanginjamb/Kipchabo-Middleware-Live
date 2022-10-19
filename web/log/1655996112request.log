@@ -1,0 +1,27 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "OTUOROOMONDIEVA",
+   "billAmount": "150000",
+   "CustomerRefNumber": "OTUOROOMONDIEVA",
+   "bankreference": "20220623S577873",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "23-06-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "OTUOROOMONDIEVA",
+   "billAmount": "50000",
+   "CustomerRefNumber": "OTUOROOMONDIEVA",
+   "bankreference": "20220623S582246",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "23-06-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

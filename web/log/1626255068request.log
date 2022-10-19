@@ -1,0 +1,14 @@
+{
+   "username": "MWANZO",
+   "password": "uB8YYsrakl",
+   "billNumber": "02085612",
+   "billAmount": "200000",
+   "CustomerRefNumber": "02085612",
+   "bankreference": "2021071466071234358",
+   "tranParticular": "BillPayment",
+   "paymentMode": "cash",
+   "transactionDate": "14-07-2021 00:00:00",
+   "phonenumber": "254763555289",
+   "debitaccount": "0170192891200",
+   "debitcustname": "JOSEPH BABU KIZA"
+}

@@ -1,0 +1,27 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "JamesNjorogeWaw",
+   "billAmount": "150000",
+   "CustomerRefNumber": "JamesNjorogeWaw",
+   "bankreference": "20220208S7637919",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "08-02-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "JamesNjorogeWaw",
+   "billAmount": "91668",
+   "CustomerRefNumber": "JamesNjorogeWaw",
+   "bankreference": "20220208S7644455",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "08-02-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

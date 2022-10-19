@@ -1,0 +1,27 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "PETERWAINAINANJ",
+   "billAmount": "39000",
+   "CustomerRefNumber": "PETERWAINAINANJ",
+   "bankreference": "20220228S7593834",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "28-02-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "PETERWAINAINANJ",
+   "billAmount": "150000",
+   "CustomerRefNumber": "PETERWAINAINANJ",
+   "bankreference": "20220228S7584451",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "28-02-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

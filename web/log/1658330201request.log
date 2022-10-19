@@ -1,0 +1,27 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "PAMELA SIGEI",
+   "billAmount": "31250",
+   "CustomerRefNumber": "PAMELA SIGEI",
+   "bankreference": "20220720S5012272",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "20-07-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000365"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "GRACE WANJIRU",
+   "billAmount": "52084",
+   "CustomerRefNumber": "GRACE WANJIRU",
+   "bankreference": "20220720S5010608",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "20-07-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "Chq:000020"
+}

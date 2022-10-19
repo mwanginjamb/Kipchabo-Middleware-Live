@@ -1,0 +1,27 @@
+{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "DineshKeshavjiG",
+   "billAmount": "84800",
+   "CustomerRefNumber": "DineshKeshavjiG",
+   "bankreference": "20220923S2212981",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "23-09-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}{
+   "username": "Kapematt",
+   "password": "uB8YYsrakl",
+   "billNumber": "DineshKeshavjiG",
+   "billAmount": "100000",
+   "CustomerRefNumber": "DineshKeshavjiG",
+   "bankreference": "20220923S2210216",
+   "tranParticular": "null",
+   "paymentMode": "cash",
+   "transactionDate": "23-09-2022 00:00:00",
+   "phonenumber": "null",
+   "debitaccount": "null",
+   "debitcustname": "MPS"
+}

@@ -21,7 +21,13 @@ class ReceiptLine extends Model
     public $Qty;
     public $Price;
     public $Total_Amount;
+    public $Stock_Balance;
     public $POS_Receipt_No;
+
+    public $VAT_Amount;
+    public $Amount_Inc_VAT;
+    public $U_O_M;
+    
 
 
     public function rules()

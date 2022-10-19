@@ -10,17 +10,21 @@ namespace app\models;
 use yii\base\Model;
 
 
-class Stockissueline extends Model
+class Cashdeposit extends Model
 {
 
 public $Key;
-public $Item_No;
-public $Description;
-public $Requested_Pieces;
-public $Issued_Pieces;
-public $Pieces_Received;
-public $Stock_Issue_No;
-public $U_O_M;
+public $No;
+public $Posting_Date;
+public $Reference;
+public $Created_By;
+public $Amount;
+public $Cash_Deposit_Lines;
+
+public $Customer_Name;
+public $Select;
+
+
 
 
     public function rules()

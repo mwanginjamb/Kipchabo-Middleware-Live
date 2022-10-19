@@ -26,6 +26,8 @@ use app\models\Creditline;
 use app\models\StockIssue;
 use app\models\ReturnCard;
 use app\models\Returnline;
+use app\models\Cashdeposit;
+use app\models\Cashdepositline;
 
 class SiteController extends Controller
 {
@@ -34,7 +36,53 @@ class SiteController extends Controller
     {  
 
         $allowedActions = [
+<<<<<<< HEAD
             'verification'
+=======
+            'grenleafcollection',
+            'updategreenleafcollection',
+            'greenleafcollectionline',
+            'updategreenleafcollectionline',
+            'addline',
+            'update-requisition',
+            'updaterequisitionline',
+            'update-invoice',
+            'updatesalesinvoiceline',
+            'addsalesinvoiceline',
+            'create-invoice',
+            'updatecashreceipt',
+            'updatecashreceiptline',
+            'updateamounttoreceipt',
+            'leafcollectioncard',
+            'collectionlinetoupdate',
+            'leafcollectioncard',
+            'farmer-card',
+            'add-farmer',
+            'add-media',
+            'auth',
+            'updateissueline',
+            'requisition-lines',
+            'cash-sale',
+            'cash-sale-line',
+            'credit',
+            'credit-line',
+            'stock-issue-line',
+            'stock-issue-card',
+            'acknowledge-stock-issue',
+            'return',
+            'view-return',
+            'return-line',
+            'fetch-return-line',
+            'cashdeposit',
+            'view-cashdeposit',
+            'cashdepositline',
+            'fetch-cashdeposit-line',
+            'create-cash-deposit',
+            'cash-deposit-card',
+            'cashdeposit-line',
+            'post-cashdeposit',
+            'filtermystocks'
+>>>>>>> c0c293599fb0ab646456ee3e9fe957e3b5f54717
         ];
 
         if (in_array($action->id , $allowedActions) ) {
@@ -68,7 +116,82 @@ class SiteController extends Controller
                     [
                         'actions' => [
                             'index',
+<<<<<<< HEAD
                             'verification'
+=======
+                            'get-orders',
+                            'getone',
+                            'items',
+                            'itemcard',
+                            'requisitions',
+                            'requisitioncard',
+                            'locationlist',
+                            'unitmeasure',
+                            'addline',
+                            'releasedrequisitions',
+                            'create-requisition',
+                            'get',
+                            'update-requisition',
+                            'departments',
+                            'projects',
+                            'getline',
+                            'updaterequisitionline',
+                            'saleorders',
+                            'salesorder',
+                            'saleinvoices',
+                            'saleinvoice',
+                            'getsalesinvoiceline',
+                            'update-invoice',
+                            'updatesalesinvoiceline',
+                            'addsalesinvoiceline',
+                            'create-invoice',
+                            'receipt',
+                            'receipting-customers',
+                            'customerledgerentries',
+                            'newpayment',
+                            'updatecashreceipt',
+                            'suggestlines',
+                            'refreshreceipt',
+                            'updatecashreceiptline',
+                            'updateamounttoreceipt',
+                            'sale',
+                            'postreceipt',
+                            'postsaleinvoice',
+                            'filtersales',
+                            'filterpayments',
+                            'itemavailabilitybylocation',
+                            'leafcollectioncard',
+                            'farmer-card',
+                            'add-farmer',
+                            'shades',
+                            'add-media',
+                            'auth',
+                            'employee',
+                            'stockissue',
+                            'getissueline',
+                            'updateissueline',
+                            'requisition-lines',
+                            'cash-sale',
+                            'cash-sale-line',
+                            'credit',
+                            'credit-line',
+                            'stock-issue-line',
+                            'stock-issue-card',
+                            'acknowledge-stock-issue',
+                            'return',
+                            'view-return',
+                            'return-line',
+                            'fetch-return-line',
+                            'cashdeposit',
+                            'view-cashdeposit',
+                            'cashdepositline',
+                            'fetch-cashdeposit-line',
+                            'create-cash-deposit',
+                            'cash-deposit-card',
+                            'cashdeposit-line',
+                            'post-cashdeposit',
+                            'filtermystocks'
+>>>>>>> c0c293599fb0ab646456ee3e9fe957e3b5f54717
                         ],
                         'allow' => true,
                         'roles' => ['?'],
@@ -78,7 +201,86 @@ class SiteController extends Controller
             'contentNegotiator' =>[
                 'class' => ContentNegotiator::class,
                 'only' => [
+<<<<<<< HEAD
                     'verification',
+=======
+                    'getone',
+                    'get-orders',
+                    'items',
+                    'itemcard', 
+                    'requisitions',
+                    'requisitioncard',
+                    'locationlist',
+                    'unitmeasure',
+                    'addline',
+                    'releasedrequisitions',
+                    'create-requisition',
+                    'get',
+                    'update-requisition',
+                    'departments',
+                    'projects',
+                    'getline',
+                    'updaterequisitionline',
+                    'saleorders',
+                    'salesorder',
+                    'saleinvoices',
+                    'saleinvoice',
+                    'getsalesinvoiceline',
+                    'update-invoice',
+                    'updatesalesinvoiceline',
+                    'addsalesinvoiceline',
+                    'create-invoice',
+                    'receipt',
+                    'receipting-customers',
+                    'customerledgerentries',
+                    'newpayment',
+                    'updatecashreceipt',
+                    'suggestlines',
+                    'updatecashreceiptline',
+                    'updateamounttoreceipt',
+                    'sale',
+                    'postreceipt',
+                    'postsaleinvoice',
+                    'filtersales',
+                    'filterpayments',
+                    'itemavailabilitybylocation',
+                    'leafcollection',
+                    'updateleafcollection',
+                    'leafcollectionline',
+                    'updateleafcollectionline',
+                    'leafcollectioncard',
+                    'collectionlinetoupdate',
+                    'farmer-card',
+                    'add-farmer',
+                    'shades',
+                    'add-media',
+                    'auth',
+                    'employee',
+                    'stockissue',
+                    'getissueline',
+                    'updateissueline',
+                    'requisition-lines',
+                    'cash-sale',
+                    'cash-sale-line',
+                    'credit',
+                    'credit-line',
+                    'stock-issue-line',
+                    'stock-issue-card',
+                    'acknowledge-stock-issue',
+                    'return',
+                    'view-return',
+                    'return-line',
+                    'fetch-return-line',
+                    'cashdeposit',
+                    'view-cashdeposit',
+                    'cashdepositline',
+                    'fetch-cashdeposit-line',
+                    'create-cash-deposit',
+                    'cash-deposit-card',
+                    'cashdeposit-line',
+                    'post-cashdeposit',
+                    'filtermystocks'
+>>>>>>> c0c293599fb0ab646456ee3e9fe957e3b5f54717
 
                 ],
                 'formatParam' => '_format',
@@ -315,7 +517,8 @@ class SiteController extends Controller
     public function actionItems() {
         $service = Yii::$app->params['ServiceName']['ItemList'];
         $filter = [
-            'Inventory_Posting_Group' => 'Blended'
+            'Inventory_Posting_Group' => 'Blended',
+            'Pos_Stock' => 1 
         ];
 
         $results = Yii::$app->Navhelper->getData($service, $filter );
@@ -422,7 +625,9 @@ class SiteController extends Controller
 
     public function actionLocationlist() {
         $service = Yii::$app->params['ServiceName']['LocationList'];
-        $filter = [];
+        $filter = [
+            'Pos_Store' => 1
+        ];
 
         $results = Yii::$app->Navhelper->getData($service, $filter );
 
@@ -719,7 +924,7 @@ class SiteController extends Controller
           return $update;
         }else{ // Return Navision Error
 
-            $refresh;
+            return $refresh;
         }
 
     }
@@ -1050,24 +1255,31 @@ class SiteController extends Controller
     /* Generic Getter Method just supply service name as a get param*/
      public function actionGet($service,$userid="")
     {
-        $service = Yii::$app->params['ServiceName'][$service];
+        $wservice = Yii::$app->params['ServiceName'][$service];
 
         if(empty($userid))
         {
             $data = [];
-        } else{
+        }
+        elseif($service === 'PostedSalesInvoices')
+        {
+            $data = ['Salesperson_Code' => $userid];
+        }
+         else{
             $data = ['Created_By' => $userid];
         }       
             
-        $results = Yii::$app->Navhelper->getData($service, $data);
+        $results = Yii::$app->Navhelper->getData($wservice, $data);
 
         if(is_array($results))
         {
             return $results;
         }else
         {
-            return $results;
+            return [];
         }
+
+        return [];
     }
 
     public function actionDepartments()
@@ -1202,15 +1414,20 @@ class SiteController extends Controller
 
     // Get Customers for Receipting
 
-     public function actionReceiptingCustomers($searchName='')
+     public function actionReceiptingCustomers($searchName='',$Salesperson_Code='')
     {
-        $service = Yii::$app->params['ServiceName']['CustomerList'];
+        $service = Yii::$app->params['ServiceName']['PortalCustomerList'];
 
         if(!empty($searchName)) {
             $filter = [
                 'Search_Name'=> $searchName
             ];
-        }else {
+        }elseif (!empty($Salesperson_Code)) {
+            $filter = [
+                'Salesperson_Code' => $Salesperson_Code
+            ];
+        }
+        else {
             $filter = [
                 //'Has_Invoice' => true
             ];
@@ -1221,7 +1438,12 @@ class SiteController extends Controller
 
         if(is_array($results))
         {
-            return $results;
+            if(sizeof($results))
+            {
+                return $results;
+            }
+            return [];
+            
         }else
         {
             return $results;
@@ -1487,6 +1709,34 @@ class SiteController extends Controller
          $results = $this->actionGet($service2);
 
          return $results;
+
+
+    }
+
+    // Filter  iNDIVIDUAL STOCKS
+
+    public function actionFiltermystocks($startDate, $endDate="",$locationCode, $userIdToUse )
+    {
+        
+        $service1 = Yii::$app->params['ServiceName']['MobileCodeunit'];
+       
+
+        
+
+        // Generate Filtered Sales List
+
+        $args = [
+            'userID' => $userIdToUse
+        ];
+
+        $coderes = Yii::$app->Navhelper->Mobile($service1,$args,'FnInsertStock');
+         if(is_string($coderes)){
+            return $coderes;
+        }
+
+       
+
+         return $coderes;
 
 
     }
@@ -1976,6 +2226,183 @@ class SiteController extends Controller
         $line = Yii::$app->Navhelper->readByKey($service, $Key);
 
         return $line;
+    }
+
+
+    /*Cash Deposits*/
+
+
+
+//Create or update a return record
+    public function actionCashdeposit($Key="")
+    {
+        $model = new Cashdeposit();
+        $service = Yii::$app->params['ServiceName']['CashDepositCard'];
+
+        // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = [];
+
+        // return $data;
+        //Initial request
+        if(!isset($data->Key) && empty($Key) ) // Post Only
+        {  
+            Yii::$app->Navhelper->loadmodel($data,$model);   
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(isset($data->Key))
+        {
+            $model = Yii::$app->Navhelper->loadmodel($data,$model);
+        }
+
+       
+
+       
+        // Get Record to Update
+        $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Array of Object Was Returned
+
+          
+         
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+          $model->Key = $refresh->Key;
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error
+
+            $refresh;
+        }
+
+    }
+
+
+    // Read a Return Document
+
+     public function actionViewCashdeposit($Key)
+    {
+
+
+         $service = Yii::$app->params['ServiceName']['CashDepositCard'];
+         
+
+         $result = Yii::$app->Navhelper->readByKey($service,$Key);
+
+         if(is_object($result)){
+            return $result;
+         }else{
+            $result;
+         }
+         
+    }
+
+// Create / update a return Line
+    public function actionCashdepositLine($Key="")
+    {
+        $model = new Cashdepositline();
+        $service = Yii::$app->params['ServiceName']['CashDepositLines'];
+
+       // Takes raw data from the request
+        $json = file_get_contents('php://input');
+        // Convert it into a PHP object
+        $data = json_decode($json);
+
+        $ignore = [];
+        $refresh = '';
+
+        //Initial request
+        if(!Yii::$app->request->get('Key') && !isset($data->Key)) // Post without payload Only
+        {     
+            Yii::$app->Navhelper->loadmodel($data,$model);
+            $request = Yii::$app->Navhelper->postData($service,$model);
+            return $request;
+        }elseif(Yii::$app->request->get('Key')) // A get Request - Gets Record to update
+        {
+           
+            $request = Yii::$app->Navhelper->readByKey($service, $Key);
+            return $request;
+        }
+        
+               
+        // Refresh Nav key as you prepare to Update Record
+        if(isset($data->Key)){
+             $refresh = Yii::$app->Navhelper->readByKey($service, $data->Key);
+        }
+       
+
+        //Load model with Line Data
+        if(is_object($refresh)){ // Object Was Returned from above refresh
+
+          $model->Key = $refresh->Key;
+          $model = Yii::$app->Navhelper->loadmodel($data,$model,$ignore);
+
+            // Do actual update
+          $update = Yii::$app->Navhelper->updateData($service, $model);
+
+          return $update;
+        }else{ // Return Navision Error - should be a string
+
+            $refresh;
+        }
+
+    }
+
+    // Get Return Line By Key
+
+    public function actionFetchCashdepositLine($Key)
+    {
+        $service = Yii::$app->params['ServiceName']['CashDepositLines'];
+        $line = Yii::$app->Navhelper->readByKey($service, $Key);
+
+        return $line;
+    }
+
+
+    // Create a cash Deposit via code unit
+
+     public function actionCreateCashDeposit($UserID)
+    {
+
+        $service = Yii::$app->params['ServiceName']['MobileCodeunit'];
+
+         // Call Mobile Code Unit
+
+        $args = [
+            'userID'=> $UserID,
+        ];
+
+        $res = Yii::$app->Navhelper->Mobile($service,$args,'FnCreatedCashdeposit');
+        return $res['return_value'];
+    }
+
+
+     public function actionCashDepositCard($No)
+    {
+        $service = Yii::$app->params['ServiceName']['CashDepositCard'];
+        $data = Yii::$app->Navhelper->findOne($service,[],'No',$No);
+
+        return $data;
+    }
+
+    // Post Cash Deposit -post-cashdeposit 
+
+    public function actionPostCashdeposit($No){
+        $service = Yii::$app->params['ServiceName']['MobileCodeunit'];
+        $args = [
+            'docN' => $No
+        ];
+        
+        $res = Yii::$app->Navhelper->Mobile($service,$args,'FnPostDeposit');
+        return $res;
+
     }
 
         
